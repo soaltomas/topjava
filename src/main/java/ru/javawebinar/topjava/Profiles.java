@@ -1,5 +1,7 @@
 package ru.javawebinar.topjava;
 
+import org.springframework.context.annotation.Profile;
+
 /**
  * User: gkislin
  * Date: 19.08.2014
@@ -13,7 +15,8 @@ public class Profiles {
 
     public static final String
             JDBC = "jdbc",
-            JPA = "jpa";
+            JPA = "jpa",
+            DATAJPA = "datajpa";
 
-    public static final String REPOSITORY_IMPLEMENTATION = JPA;
+    public static final String REPOSITORY_IMPLEMENTATION = DATAJPA;
 }
