@@ -9,10 +9,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static ru.javawebinar.topjava.util.MealsUtil.DEFAULT_CALORIES_PER_DAY;
 
@@ -116,6 +113,10 @@ public class User extends NamedEntity {
 
     public void setCaloriesPerDay(int caloriesPerDay) {
         this.caloriesPerDay = caloriesPerDay;
+    }
+
+    public void setRoles(Collection<Role> roles) {
+        this.roles = EnumSet.copyOf(roles);
     }
 
     public boolean isEnabled() {
