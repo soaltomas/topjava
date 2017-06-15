@@ -20,9 +20,10 @@ import static ru.javawebinar.topjava.util.UserUtil.DEFAULT_CALORIES_PER_DAY;
         @NamedQuery(name = User.ALL_SORTED, query = "SELECT u FROM User u ORDER BY u.name, u.email"),
 })
 @Entity
-//@NamedEntityGraph(name = User.GRAPH_WITH_MEALS, attributeNodes = {@NamedAttributeNode("meals")})
+//@NamedEntityGraph(name = UDser.GRAPH_WITH_MEALS, attributeNodes = {@NamedAttributeNode("meals")})
 @Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = "email", name = "users_unique_email_idx")})
-public class User extends NamedEntity {
+public class
+User extends NamedEntity {
 
 //    public static final String GRAPH_WITH_MEALS = "User.withMeals";
 
@@ -33,14 +34,12 @@ public class User extends NamedEntity {
     @Column(name = "email", nullable = false, unique = true)
     @Email
     @NotBlank
-    @SafeHtml
     private String email;
 
     @Column(name = "password", nullable = false)
     @NotBlank
     @Length(min = 5)
     @JsonView(View.JsonREST.class)
-    @SafeHtml
     private String password;
 
     @Column(name = "enabled", nullable = false, columnDefinition = "bool default true")
